@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Disney+ permanente">
+  <defs>
+    <radialGradient id="dbg" cx="50%" cy="35%" r="85%">
+      <stop offset="0%" stop-color="#0d1b4e"/>
+      <stop offset="100%" stop-color="#050a1c"/>
+    </radialGradient>
+    <linearGradient id="dswoosh" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#9CC7FF"/>
+      <stop offset="100%" stop-color="#1B64E8"/>
+    </linearGradient>
+    <radialGradient id="dglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2C7BFF" stop-opacity=".45"/>
+      <stop offset="100%" stop-color="#2C7BFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#dbg)"/>
+  <circle cx="320" cy="170" r="170" fill="url(#dglow)"/>
+  <path d="M172 168 Q320 58 470 168" stroke="url(#dswoosh)" stroke-width="17" fill="none" stroke-linecap="round"/>
+  <text x="320" y="272" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" fill="#ffffff" letter-spacing="-2">disney+</text>
+  <text x="320" y="336" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#ffffff" fill-opacity=".55" letter-spacing="7">PERMANENTE</text>
+</svg>

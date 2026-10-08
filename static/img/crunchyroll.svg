@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Crunchyroll permanente">
+  <defs>
+    <radialGradient id="cbg" cx="50%" cy="38%" r="85%">
+      <stop offset="0%" stop-color="#2a1405"/>
+      <stop offset="100%" stop-color="#0d0a08"/>
+    </radialGradient>
+    <radialGradient id="corb" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#FFB061"/>
+      <stop offset="100%" stop-color="#EE6A12"/>
+    </radialGradient>
+    <radialGradient id="cglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F47521" stop-opacity=".45"/>
+      <stop offset="100%" stop-color="#F47521" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#cbg)"/>
+  <circle cx="320" cy="150" r="160" fill="url(#cglow)"/>
+  <circle cx="320" cy="150" r="74" fill="url(#corb)"/>
+  <path d="M320 88 a62 62 0 1 0 62 62" stroke="#ffffff" stroke-width="13" fill="none" stroke-linecap="round"/>
+  <text x="320" y="300" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" fill="#ffffff" letter-spacing="-1">crunchyroll</text>
+  <text x="320" y="348" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#ffffff" fill-opacity=".55" letter-spacing="7">PERMANENTE</text>
+</svg>

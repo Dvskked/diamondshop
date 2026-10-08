@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Paramount+ permanente">
+  <defs>
+    <radialGradient id="pbg" cx="50%" cy="35%" r="85%">
+      <stop offset="0%" stop-color="#0b3f9e"/>
+      <stop offset="100%" stop-color="#030f33"/>
+    </radialGradient>
+    <linearGradient id="pmount" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#BBD6FF"/>
+    </linearGradient>
+    <radialGradient id="pglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1E7BFF" stop-opacity=".45"/>
+      <stop offset="100%" stop-color="#1E7BFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#pbg)"/>
+  <circle cx="320" cy="150" r="165" fill="url(#pglow)"/>
+  <circle cx="320" cy="150" r="96" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="2"/>
+  <g fill="#ffffff">
+    <circle cx="233" cy="135" r="3.5"/><circle cx="253" cy="93" r="3.5"/>
+    <circle cx="290" cy="67" r="3.5"/><circle cx="335" cy="63" r="3.5"/>
+    <circle cx="377" cy="83" r="3.5"/><circle cx="403" cy="120" r="3.5"/>
+  </g>
+  <polygon points="320,86 404,214 236,214" fill="url(#pmount)"/>
+  <polygon points="320,86 350,132 290,132" fill="#7FB0FF"/>
+  <text x="320" y="300" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700" fill="#ffffff" letter-spacing="-1">paramount+</text>
+  <text x="320" y="348" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#ffffff" fill-opacity=".55" letter-spacing="7">PERMANENTE</text>
+</svg>

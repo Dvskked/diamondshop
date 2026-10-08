@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Netflix permanente">
+  <defs>
+    <radialGradient id="nbg" cx="50%" cy="38%" r="85%">
+      <stop offset="0%" stop-color="#1d0508"/>
+      <stop offset="100%" stop-color="#0a0a0d"/>
+    </radialGradient>
+    <linearGradient id="nred" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F6121D"/>
+      <stop offset="100%" stop-color="#9E060E"/>
+    </linearGradient>
+    <radialGradient id="nglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E50914" stop-opacity=".5"/>
+      <stop offset="100%" stop-color="#E50914" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#nbg)"/>
+  <circle cx="320" cy="150" r="165" fill="url(#nglow)"/>
+  <g>
+    <rect x="258" y="66" width="30" height="164" fill="url(#nred)"/>
+    <rect x="354" y="66" width="30" height="164" fill="url(#nred)"/>
+    <polygon points="258,66 288,66 384,230 354,230" fill="url(#nred)"/>
+  </g>
+  <text x="320" y="302" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="54" font-weight="900" fill="#E50914" letter-spacing="10">NETFLIX</text>
+  <text x="320" y="348" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#ffffff" fill-opacity=".55" letter-spacing="7">PERMANENTE</text>
+</svg>

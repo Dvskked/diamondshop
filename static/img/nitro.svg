@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Discord Nitro">
+  <defs>
+    <linearGradient id="nbg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4E5AF2"/>
+      <stop offset="100%" stop-color="#1F2688"/>
+    </linearGradient>
+    <linearGradient id="nrock" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#D9E0FF"/>
+    </linearGradient>
+    <linearGradient id="nflame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD166"/>
+      <stop offset="100%" stop-color="#FF8A3D"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#nbg2)"/>
+  <g fill="#ffffff" fill-opacity=".35">
+    <circle cx="140" cy="80" r="3"/><circle cx="510" cy="66" r="4"/>
+    <circle cx="120" cy="250" r="3.5"/><circle cx="530" cy="240" r="3"/>
+    <circle cx="470" cy="150" r="2.5"/><circle cx="175" cy="165" r="2.5"/>
+  </g>
+  <path d="M320 52 C350 88 362 132 362 170 L362 212 L278 212 L278 170 C278 132 290 88 320 52 Z" fill="url(#nrock)"/>
+  <polygon points="278,176 246,236 278,214" fill="#F5C546"/>
+  <polygon points="362,176 394,236 362,214" fill="#F5C546"/>
+  <circle cx="320" cy="128" r="25" fill="#1F2688" stroke="#F5C546" stroke-width="6"/>
+  <path d="M300 214 Q320 282 340 214 Z" fill="url(#nflame)"/>
+  <text x="320" y="330" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="42" font-weight="900" fill="#ffffff" letter-spacing="2">DISCORD NITRO</text>
+  <text x="320" y="372" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#ffffff" fill-opacity=".7" letter-spacing="7">PREMIUM</text>
+</svg>
