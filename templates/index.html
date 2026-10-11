@@ -492,18 +492,18 @@
     <ol class="pasos">
       <li class="paso" data-reveal>
         <span class="paso-num">01</span>
-        <h3>Elige tu producto</h3>
-        <p>Revisa el catalogo y escoge lo que necesitas: streaming, gaming o servicios.</p>
+        <h3>Arma tu carrito</h3>
+        <p>Revisa el catalogo, elige la cantidad y agrega tus productos al carrito.</p>
       </li>
       <li class="paso" data-reveal style="--d:.08s">
         <span class="paso-num">02</span>
-        <h3>Escoge el metodo de pago</h3>
-        <p>Nequi, PayPal, Banco de Venezuela o Western Union, como te quede mas comodo.</p>
+        <h3>Ver compra y factura</h3>
+        <p>Pulsa "Ver compra" en el carrito: se descarga tu factura .txt con el total a pagar.</p>
       </li>
       <li class="paso" data-reveal style="--d:.16s">
         <span class="paso-num">03</span>
         <h3>Abre tu ticket en Discord</h3>
-        <p>Entras a nuestro servidor, abres un ticket con el producto y el comprobante de pago.</p>
+        <p>Entras a nuestro servidor, abres un ticket y envias la factura .txt para ver tu compra.</p>
       </li>
       <li class="paso" data-reveal style="--d:.24s">
         <span class="paso-num">04</span>
@@ -564,8 +564,8 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
       </span>
       <p>
-        <strong>Informacion segura:</strong> DIAMOND SHOP es un sitio <strong>100% informativo</strong>.
-        No hay carrito, formularios de pago ni almacenamiento de datos: nunca te pedimos
+        <strong>Informacion segura:</strong> el carrito funciona <strong>solo en tu navegador</strong> para armar tu
+        lista y descargar tu factura <b>.txt</b>. No hay pasarela de pago ni envio de datos: nunca te pedimos
         numeros de tarjeta, cuentas ni claves aqui. La compra se coordina abriendo un ticket en nuestro Discord.
       </p>
     </div>
@@ -623,7 +623,7 @@
 
       <details class="faq-item" data-reveal style="--d:.05s">
         <summary>¿Esta web pide datos bancarios?<span class="faq-ico"></span></summary>
-        <div class="faq-body"><p>No. La pagina es solo informativa: no tiene carrito, pasarela de pago ni formularios con datos. Nunca te pediremos tarjetas, claves ni numeros de cuenta aqui; la compra se coordina abriendo un ticket en nuestro Discord.</p></div>
+        <div class="faq-body"><p>No. El carrito funciona solo en tu navegador: no tiene pasarela de pago ni formularios con datos y no guarda ni envia informacion a ningun servidor. Nunca te pediremos tarjetas, claves ni numeros de cuenta aqui; al pulsar "Ver compra" se descarga tu factura .txt y la compra se coordina abriendo un ticket en nuestro Discord.</p></div>
       </details>
 
       <details class="faq-item" data-reveal style="--d:.1s">
@@ -721,6 +721,63 @@
 </footer>
 
 <button class="btn-top" type="button" id="btnTop" aria-label="Volver arriba">&uarr;</button>
+
+<!-- ============ CARRITO DE COMPRAS ============ -->
+<div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Carrito de compras">
+  <div class="cart-head">
+    <div>
+      <h3>Tu <span>carrito</span></h3>
+      <small id="cartResumen">0 productos</small>
+    </div>
+    <button class="cart-x" type="button" id="cartCerrar" aria-label="Cerrar carrito">&times;</button>
+  </div>
+
+  <div class="cart-body">
+    <div class="cart-vacio" id="cartVacio">
+      <span class="cart-vacio-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2.5 3.5h2.4l2.2 11.2a1.8 1.8 0 0 0 1.8 1.4h8.4a1.8 1.8 0 0 0 1.8-1.4l1.3-6.2H6.1"/></svg>
+      </span>
+      <strong>Tu carrito esta vacio</strong>
+      <p>Agrega productos del catalogo con la cantidad que quieras.</p>
+    </div>
+    <ul class="cart-lista" id="cartLista"></ul>
+  </div>
+
+  <div class="cart-foot">
+    <div class="cart-total">
+      <span>Total</span>
+      <strong id="cartTotal">$0.00</strong>
+    </div>
+    <button class="btn btn-gold big cart-ver" type="button" id="cartVer">Ver compra</button>
+    <button class="cart-vaciar" type="button" id="cartVaciar">Vaciar carrito</button>
+    <p class="cart-nota">Al ver tu compra se descarga un archivo <b>.txt</b> con tu factura. Luego la envias en un ticket de nuestro Discord.</p>
+  </div>
+</aside>
+
+<!-- ============ AVISO EMERGENTE ============ -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ============ MODAL FACTURA ============ -->
+<div class="modal" id="facturaModal" role="dialog" aria-modal="true" aria-labelledby="facturaTitulo" aria-hidden="true">
+  <div class="modal-overlay" data-cerrar-modal></div>
+  <div class="modal-caja">
+    <span class="modal-ico">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg>
+    </span>
+    <h3 id="facturaTitulo">Tu factura esta lista</h3>
+    <p>
+      Descargamos tu factura en un archivo <strong>.txt</strong> con el detalle de tu compra.
+      Ahora <strong>te llevaremos a nuestro Discord</strong> para que crees un ticket y envies
+      el documento <strong>.txt</strong>: ahi revisaremos que quieres comprar y coordinamos el pago.
+    </p>
+    <div class="modal-acciones">
+      <a class="btn btn-gold big" href="https://discord.com/invite/6K7nezXhx6" target="_blank" rel="noopener">Ir a Discord</a>
+      <button class="btn btn-ghost" type="button" data-cerrar-modal>Cerrar</button>
+    </div>
+    <p class="modal-nota">Si no se descargo automaticamente, vuelve a pulsar <b>Ver compra</b> en el carrito.</p>
+  </div>
+</div>
 
 <script src="/static/js/main.js" defer></script>
 </body>
