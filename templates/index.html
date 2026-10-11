@@ -67,6 +67,10 @@
     </nav>
 
     <div class="topbar-right">
+      <button class="cart-btn" type="button" id="cartBtn" aria-label="Abrir carrito de compras">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2.5 3.5h2.4l2.2 11.2a1.8 1.8 0 0 0 1.8 1.4h8.4a1.8 1.8 0 0 0 1.8-1.4l1.3-6.2H6.1"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
       <a class="btn btn-gold btn-sm" href="#contacto">Pedir ahora</a>
       <button class="burger" type="button" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
@@ -157,7 +161,7 @@
 
     <div class="grid grid-products" id="grid">
 
-      <article class="card product" data-cat="streaming" data-reveal>
+      <article class="card product" data-cat="streaming" data-id="netflix" data-name="Netflix Permanente" data-price="27" data-reveal>
         <div class="product-media">
           <img src="/static/img/netflix.svg" alt="Netflix permanente" width="640" height="400" loading="lazy">
           <span class="product-cat">STREAMING</span>
@@ -171,12 +175,19 @@
           </ul>
           <div class="product-foot">
             <span class="price"><small>pago unico</small><strong>$27</strong></span>
-            <a class="btn btn-gold btn-sm" href="#contacto">Pedir</a>
+            <div class="product-actions">
+              <div class="qty">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Quitar una unidad">-</button>
+                <input class="qty-input" type="number" value="1" min="1" max="99" inputmode="numeric" aria-label="Cantidad de Netflix">
+                <button type="button" class="qty-btn" data-step="1" aria-label="Agregar una unidad">+</button>
+              </div>
+              <button class="btn btn-gold btn-sm add-cart" type="button">Agregar</button>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card product" data-cat="streaming" data-reveal style="--d:.06s">
+      <article class="card product" data-cat="streaming" data-id="disneyplus" data-name="Disney+ Permanente" data-price="27" data-reveal style="--d:.06s">
         <div class="product-media">
           <img src="/static/img/disneyplus.svg" alt="Disney+ permanente" width="640" height="400" loading="lazy">
           <span class="product-cat">STREAMING</span>
@@ -190,12 +201,19 @@
           </ul>
           <div class="product-foot">
             <span class="price"><small>pago unico</small><strong>$27</strong></span>
-            <a class="btn btn-gold btn-sm" href="#contacto">Pedir</a>
+            <div class="product-actions">
+              <div class="qty">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Quitar una unidad">-</button>
+                <input class="qty-input" type="number" value="1" min="1" max="99" inputmode="numeric" aria-label="Cantidad de Disney+">
+                <button type="button" class="qty-btn" data-step="1" aria-label="Agregar una unidad">+</button>
+              </div>
+              <button class="btn btn-gold btn-sm add-cart" type="button">Agregar</button>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card product" data-cat="streaming" data-reveal style="--d:.12s">
+      <article class="card product" data-cat="streaming" data-id="crunchyroll" data-name="Crunchyroll Permanente" data-price="20" data-reveal style="--d:.12s">
         <div class="product-media">
           <img src="/static/img/crunchyroll.svg" alt="Crunchyroll permanente" width="640" height="400" loading="lazy">
           <span class="product-cat">STREAMING</span>
@@ -209,12 +227,19 @@
           </ul>
           <div class="product-foot">
             <span class="price"><small>pago unico</small><strong>$20</strong></span>
-            <a class="btn btn-gold btn-sm" href="#contacto">Pedir</a>
+            <div class="product-actions">
+              <div class="qty">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Quitar una unidad">-</button>
+                <input class="qty-input" type="number" value="1" min="1" max="99" inputmode="numeric" aria-label="Cantidad de Crunchyroll">
+                <button type="button" class="qty-btn" data-step="1" aria-label="Agregar una unidad">+</button>
+              </div>
+              <button class="btn btn-gold btn-sm add-cart" type="button">Agregar</button>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card product" data-cat="streaming" data-reveal>
+      <article class="card product" data-cat="streaming" data-id="paramount" data-name="Paramount+ Permanente" data-price="18" data-reveal>
         <div class="product-media">
           <img src="/static/img/paramount.svg" alt="Paramount+ permanente" width="640" height="400" loading="lazy">
           <span class="product-cat">STREAMING</span>
@@ -228,12 +253,19 @@
           </ul>
           <div class="product-foot">
             <span class="price"><small>pago unico</small><strong>$18</strong></span>
-            <a class="btn btn-gold btn-sm" href="#contacto">Pedir</a>
+            <div class="product-actions">
+              <div class="qty">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Quitar una unidad">-</button>
+                <input class="qty-input" type="number" value="1" min="1" max="99" inputmode="numeric" aria-label="Cantidad de Paramount+">
+                <button type="button" class="qty-btn" data-step="1" aria-label="Agregar una unidad">+</button>
+              </div>
+              <button class="btn btn-gold btn-sm add-cart" type="button">Agregar</button>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card product" data-cat="streaming" data-reveal style="--d:.06s">
+      <article class="card product" data-cat="streaming" data-id="hbomax" data-name="HBO Max Permanente" data-price="22" data-reveal style="--d:.06s">
         <div class="product-media">
           <img src="/static/img/hbomax.svg" alt="HBO Max permanente" width="640" height="400" loading="lazy">
           <span class="product-cat">STREAMING</span>
@@ -247,12 +279,19 @@
           </ul>
           <div class="product-foot">
             <span class="price"><small>pago unico</small><strong>$22</strong></span>
-            <a class="btn btn-gold btn-sm" href="#contacto">Pedir</a>
+            <div class="product-actions">
+              <div class="qty">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Quitar una unidad">-</button>
+                <input class="qty-input" type="number" value="1" min="1" max="99" inputmode="numeric" aria-label="Cantidad de HBO Max">
+                <button type="button" class="qty-btn" data-step="1" aria-label="Agregar una unidad">+</button>
+              </div>
+              <button class="btn btn-gold btn-sm add-cart" type="button">Agregar</button>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card product" data-cat="gaming" data-reveal style="--d:.12s">
+      <article class="card product" data-cat="gaming" data-id="steam" data-name="Steam" data-price="15" data-reveal style="--d:.12s">
         <div class="product-media">
           <img src="/static/img/steam.svg" alt="Steam" width="640" height="400" loading="lazy">
           <span class="product-cat">GAMING</span>
@@ -266,12 +305,19 @@
           </ul>
           <div class="product-foot">
             <span class="price"><small>desde</small><strong>$15</strong></span>
-            <a class="btn btn-gold btn-sm" href="#contacto">Pedir</a>
+            <div class="product-actions">
+              <div class="qty">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Quitar una unidad">-</button>
+                <input class="qty-input" type="number" value="1" min="1" max="99" inputmode="numeric" aria-label="Cantidad de Steam">
+                <button type="button" class="qty-btn" data-step="1" aria-label="Agregar una unidad">+</button>
+              </div>
+              <button class="btn btn-gold btn-sm add-cart" type="button">Agregar</button>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card product" data-cat="gaming" data-reveal>
+      <article class="card product" data-cat="gaming" data-id="haxball" data-name="VIP Haxball Room" data-price="10" data-reveal>
         <div class="product-media">
           <img src="/static/img/haxball.svg" alt="VIP Haxball Room" width="640" height="400" loading="lazy">
           <span class="product-cat">GAMING</span>
@@ -285,12 +331,19 @@
           </ul>
           <div class="product-foot">
             <span class="price"><small>desde</small><strong>$10</strong></span>
-            <a class="btn btn-gold btn-sm" href="#contacto">Pedir</a>
+            <div class="product-actions">
+              <div class="qty">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Quitar una unidad">-</button>
+                <input class="qty-input" type="number" value="1" min="1" max="99" inputmode="numeric" aria-label="Cantidad de VIP Haxball Room">
+                <button type="button" class="qty-btn" data-step="1" aria-label="Agregar una unidad">+</button>
+              </div>
+              <button class="btn btn-gold btn-sm add-cart" type="button">Agregar</button>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card product" data-cat="gaming" data-reveal style="--d:.06s">
+      <article class="card product" data-cat="gaming" data-id="nitro" data-name="Discord Nitro" data-price="15" data-reveal style="--d:.06s">
         <div class="product-media">
           <img src="/static/img/nitro.svg" alt="Discord Nitro" width="640" height="400" loading="lazy">
           <span class="product-cat">GAMING</span>
@@ -304,12 +357,19 @@
           </ul>
           <div class="product-foot">
             <span class="price"><small>desde</small><strong>$15</strong></span>
-            <a class="btn btn-gold btn-sm" href="#contacto">Pedir</a>
+            <div class="product-actions">
+              <div class="qty">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Quitar una unidad">-</button>
+                <input class="qty-input" type="number" value="1" min="1" max="99" inputmode="numeric" aria-label="Cantidad de Discord Nitro">
+                <button type="button" class="qty-btn" data-step="1" aria-label="Agregar una unidad">+</button>
+              </div>
+              <button class="btn btn-gold btn-sm add-cart" type="button">Agregar</button>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card product" data-cat="servicios" data-reveal style="--d:.12s">
+      <article class="card product" data-cat="servicios" data-id="hosting" data-name="Paginas Web &amp; Hosting" data-price="30" data-reveal style="--d:.12s">
         <div class="product-media">
           <img src="/static/img/hosting.svg" alt="Paginas web y hosting" width="640" height="400" loading="lazy">
           <span class="product-cat">SERVICIOS</span>
@@ -323,12 +383,19 @@
           </ul>
           <div class="product-foot">
             <span class="price"><small>desde</small><strong>$30</strong></span>
-            <a class="btn btn-gold btn-sm" href="#contacto">Pedir</a>
+            <div class="product-actions">
+              <div class="qty">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Quitar una unidad">-</button>
+                <input class="qty-input" type="number" value="1" min="1" max="99" inputmode="numeric" aria-label="Cantidad de Paginas Web y Hosting">
+                <button type="button" class="qty-btn" data-step="1" aria-label="Agregar una unidad">+</button>
+              </div>
+              <button class="btn btn-gold btn-sm add-cart" type="button">Agregar</button>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="card product" data-cat="servicios" data-reveal>
+      <article class="card product" data-cat="servicios" data-id="bots" data-name="Bots de Discord" data-price="25" data-reveal>
         <div class="product-media">
           <img src="/static/img/bots.svg" alt="Bots de Discord" width="640" height="400" loading="lazy">
           <span class="product-cat">SERVICIOS</span>
@@ -342,7 +409,14 @@
           </ul>
           <div class="product-foot">
             <span class="price"><small>desde</small><strong>$25</strong></span>
-            <a class="btn btn-gold btn-sm" href="#contacto">Pedir</a>
+            <div class="product-actions">
+              <div class="qty">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Quitar una unidad">-</button>
+                <input class="qty-input" type="number" value="1" min="1" max="99" inputmode="numeric" aria-label="Cantidad de Bots de Discord">
+                <button type="button" class="qty-btn" data-step="1" aria-label="Agregar una unidad">+</button>
+              </div>
+              <button class="btn btn-gold btn-sm add-cart" type="button">Agregar</button>
+            </div>
           </div>
         </div>
       </article>
