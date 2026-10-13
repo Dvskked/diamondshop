@@ -230,7 +230,7 @@
   }
 
   /* ---------- CARRITO DE COMPRAS ---------- */
-  var DISCORD_URL = "https://discord.com/invite/6K7nezXhx6";
+  var DISCORD_URL = "https://discord.gg/yzvatpkUu";
   var CLAVE_CARRITO = "diamondshop_carrito_v1";
   var carrito = [];
 
@@ -245,7 +245,6 @@
   var cartOverlay = $("#cartOverlay");
   var cartLista = $("#cartLista");
   var cartVacio = $("#cartVacio");
-  var cartTotal = $("#cartTotal");
   var cartResumen = $("#cartResumen");
   var cartCerrar = $("#cartCerrar");
   var cartVer = $("#cartVer");
@@ -253,7 +252,6 @@
   var toast = $("#toast");
   var facturaModal = $("#facturaModal");
 
-  function dinero(n) { return "$" + (Math.round(n * 100) / 100).toFixed(2); }
   function dosDig(n) { return (n < 10 ? "0" : "") + n; }
 
   function guardarCarrito() {
@@ -262,9 +260,6 @@
 
   function totalUnidades() {
     return carrito.reduce(function (a, it) { return a + it.cantidad; }, 0);
-  }
-  function totalPagar() {
-    return carrito.reduce(function (a, it) { return a + it.precio * it.cantidad; }, 0);
   }
 
   function mostrarToast(msg) {
@@ -284,7 +279,6 @@
     if (cartResumen) {
       cartResumen.textContent = unidades === 1 ? "1 producto" : unidades + " productos";
     }
-    if (cartTotal) cartTotal.textContent = dinero(totalPagar());
     if (cartVer) cartVer.disabled = carrito.length === 0;
 
     if (!cartLista) return;
@@ -296,14 +290,13 @@
       var li = document.createElement("li");
       li.className = "cart-item";
       li.innerHTML =
-        '<div class="ci-info"><strong>' + it.nombre + '</strong><small>' + dinero(it.precio) + ' c/u</small></div>' +
+        '<div class="ci-info"><strong>' + it.nombre + '</strong><small>' + (it.rango ? it.rango + ' aprox.' : 'precio aproximado') + '</small></div>' +
         '<div class="ci-ctrl">' +
           '<div class="qty qty-sm">' +
             '<button type="button" class="qty-btn" data-accion="menos" data-idx="' + idx + '" aria-label="Quitar una unidad">-</button>' +
             '<input class="qty-input" type="number" min="1" max="99" value="' + it.cantidad + '" data-idx="' + idx + '" aria-label="Cantidad de ' + it.nombre + '">' +
             '<button type="button" class="qty-btn" data-accion="mas" data-idx="' + idx + '" aria-label="Agregar una unidad">+</button>' +
           '</div>' +
-          '<span class="ci-sub">' + dinero(it.precio * it.cantidad) + '</span>' +
           '<button type="button" class="ci-del" data-accion="borrar" data-idx="' + idx + '" aria-label="Quitar del carrito">&times;</button>' +
         '</div>';
       cartLista.appendChild(li);
@@ -312,15 +305,16 @@
     guardarCarrito();
   }
 
-  function agregarAlCarrito(id, nombre, precio, cantidad) {
+  function agregarAlCarrito(id, nombre, precio, rango, cantidad) {
     var encontrado = null;
     for (var i = 0; i < carrito.length; i++) {
       if (carrito[i].id === id) { encontrado = carrito[i]; break; }
     }
     if (encontrado) {
       encontrado.cantidad = Math.min(99, encontrado.cantidad + cantidad);
+      if (rango) encontrado.rango = rango;
     } else {
-      carrito.push({ id: id, nombre: nombre, precio: precio, cantidad: cantidad });
+      carrito.push({ id: id, nombre: nombre, precio: precio, rango: rango, cantidad: cantidad });
     }
     renderCarrito();
     mostrarToast(nombre + " agregado al carrito");
@@ -345,10 +339,11 @@
         var id = card.getAttribute("data-id");
         var nombre = card.getAttribute("data-name");
         var precio = parseFloat(card.getAttribute("data-price"));
+        var rango = card.getAttribute("data-range") || "";
         var cantidad = input ? parseInt(input.value, 10) : 1;
         if (isNaN(cantidad) || cantidad < 1) cantidad = 1;
         if (cantidad > 99) cantidad = 99;
-        agregarAlCarrito(id, nombre, precio, cantidad);
+        agregarAlCarrito(id, nombre, precio, rango, cantidad);
         if (input) input.value = 1;
       });
     }
@@ -425,17 +420,18 @@
     l.push("");
     l.push("DETALLE DEL PEDIDO");
     l.push("--------------------------------------------");
-    l.push("Cant  Producto                  Subtotal");
+    l.push("Cant  Producto                  Precio aprox.");
     l.push("--------------------------------------------");
     carrito.forEach(function (it) {
       var cant = String(it.cantidad);
       var nombre = it.nombre.length > 22 ? it.nombre.slice(0, 21) + "." : it.nombre;
       var relleno = "";
       for (var i = nombre.length; i < 24; i++) relleno += " ";
-      l.push(cant + "     " + nombre + relleno + dinero(it.precio * it.cantidad));
+      l.push(cant + "     " + nombre + relleno + (it.rango ? it.rango : "a confirmar"));
     });
     l.push("--------------------------------------------");
-    l.push("                          TOTAL: " + dinero(totalPagar()));
+    l.push("Precios aproximados de referencia.");
+    l.push("El total final se confirma en tu ticket de Discord.");
     l.push("============================================");
     l.push("");
     l.push("COMO COMPLETAR TU COMPRA");
