@@ -420,18 +420,19 @@
     l.push("");
     l.push("DETALLE DEL PEDIDO");
     l.push("--------------------------------------------");
-    l.push("Cant  Producto                  Precio aprox.");
+    l.push("Cant  Producto                  Precio");
     l.push("--------------------------------------------");
     carrito.forEach(function (it) {
       var cant = String(it.cantidad);
       var nombre = it.nombre.length > 22 ? it.nombre.slice(0, 21) + "." : it.nombre;
       var relleno = "";
       for (var i = nombre.length; i < 24; i++) relleno += " ";
-      l.push(cant + "     " + nombre + relleno + (it.rango ? it.rango : "a confirmar"));
+      var precioTxt = it.precio === 15 && it.nombre.toLowerCase().indexOf('bot') >= 0 ? "$15" : (it.precio === 30 && it.nombre.toLowerCase().indexOf('pagina') >= 0 ? "$30" : "Ajustado a presupuesto");
+      l.push(cant + "     " + nombre + relleno + precioTxt);
     });
     l.push("--------------------------------------------");
-    l.push("Precios aproximados de referencia.");
-    l.push("El total final se confirma en tu ticket de Discord.");
+    l.push("Productos permanentes. El precio se ajusta a tu presupuesto.");
+    l.push("El precio final se confirma en tu ticket de Discord.");
     l.push("============================================");
     l.push("");
     l.push("COMO COMPLETAR TU COMPRA");
